@@ -46,10 +46,13 @@ export const useSockets = () => {
   const onSubmit = (event) => {
     if (!value) return;
     event.preventDefault();
-    console.log("tried to submit", event);
     setLoading(true);
 
-    socket.emit("message", { message: value, sender: name });
+    let t = new Date();
+    const time =
+      t.getUTCHours() + ":" + t.getUTCMinutes() + ":" + t.getUTCSeconds();
+
+    socket.emit("message", { message: value, sender: name, timeStamp: time });
     setLoading(false);
     setValue("");
   };

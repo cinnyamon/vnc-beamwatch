@@ -31,7 +31,7 @@ const BeamChat = ({
   // );
 
   return (
-    <div className="glass col-span-3 max-w-sm px-4 pb-4 rounded-2xl w-full flex flex-col justify-between gap-3">
+    <div className="glass max-w-sm min-w-56 px-4 pb-4 rounded-2xl w-full h-full flex flex-col justify-between gap-3">
       <div className="flex justify-between border-b border-indigo-500/20 py-4">
         <div>BeamWatch Chat</div>
         <button
@@ -101,11 +101,17 @@ const BeamChat = ({
 
       <div className="h-full flex flex-col items-start">
         {messages.map((msg, idx) => (
-          <ul key={idx} className="">
+          <ul
+            key={idx}
+            className="w-full text-start rounded-sm transition-all duration-150 hover:bg-indigo-950/30 group relative"
+          >
             <span className="text-indigo-300 font-light">
               {msg.sender + ": "}
             </span>
-            <span>{msg.message}</span>
+            <span className="break-all">{msg.message}</span>
+            <span className=" absolute font-extralight bottom-0 right-0 text-xs opacity-0 group-hover:opacity-100 transition-all duration-200 bg-black/80 py-0.5 px-1.5 rounded-md">
+              {msg.timeStamp}
+            </span>
           </ul>
         ))}
       </div>

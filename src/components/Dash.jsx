@@ -1,20 +1,29 @@
+import { useSockets } from "../hooks/useSockets";
 import BeamChat from "./Chat";
 import VideoContainer from "./Container";
 
-const Dashboard = ({
-  messages,
-  setValue,
-  value,
-  loading,
-  setLoading,
-  name,
-  setName,
-  onSubmit,
-}) => {
+const Dashboard = ({}) => {
+  const {
+    onSubmit,
+    disconnect,
+    connect,
+    value,
+    setValue,
+    loading,
+    setLoading,
+    messages,
+    setMessages,
+    isConnected,
+    setIsConnected,
+    name,
+    setName,
+  } = useSockets();
   return (
-    <div className="grid grid-cols-1 md:grid-cols-12 h-full gap-4 p-4">
-      <VideoContainer />
-      <div className="flex justify-center md:col-span-3 col-span-1">
+    <div className="flex h-full gap-4 p-4 pt-26">
+      <div className="w-full">
+        <VideoContainer />
+      </div>
+      <div className="justify-center w-fit">
         <BeamChat
           messages={messages}
           setValue={setValue}

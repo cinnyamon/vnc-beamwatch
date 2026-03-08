@@ -3,14 +3,9 @@ import { Share } from "lucide-react";
 export const Nav = () => {
   const navElems = [
     {
-      link: "Chat",
-      href: "#",
-      class:
-        "relative before:transition-all before:duration-300 before:absolute before:bottom-0 before:left-0 before:w-0 hover:before:w-full before:h-px before:content-[''] before:bg-indigo-500",
-    },
-    {
       link: "New Session",
       href: "#",
+      title: "Coming soon",
       class:
         "relative before:transition-all before:duration-300 before:absolute before:bottom-0 before:left-0 before:w-0 hover:before:w-full before:h-px before:content-[''] before:bg-indigo-500",
     },
@@ -18,7 +13,7 @@ export const Nav = () => {
 
   // const toggleModal = () => setModalState(!modalState);
   return (
-    <header className="flex sticky top-0 z-20 backdrop-blur-2xl p-6 rounded-b-2xl w-full">
+    <header className="flex fixed top-0 z-20 backdrop-blur-2xl p-6 rounded-b-2xl w-full">
       <div className="headerLeft flex flex-1 justify-start gap-2 ml-6">
         <span>[ </span>
         <a
@@ -32,7 +27,12 @@ export const Nav = () => {
       <div className="headerRight flex-1 flex justify-end mr-6">
         <div className="dropdownBtnDiv relative flex gap-6 items-center">
           {navElems.map((item, idx) => (
-            <a href={item.href} className={item.class} key={idx}>
+            <a
+              href={item.href}
+              className={item.class}
+              key={idx}
+              title={item.title}
+            >
               {item.link}
             </a>
           ))}

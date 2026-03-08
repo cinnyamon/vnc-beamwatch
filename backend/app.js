@@ -15,9 +15,9 @@ app.use(
 );
 
 // app.use(express.static(path.join(__dirname, "..", "dist")));
-// app.use("/", (req, res) => {
-//   res.status(200).send({ message: "hiii" });
-// });
+app.use("/", (req, res) => {
+  res.status(200).send({ message: "hiii" });
+});
 
 // const io = new Server({
 //   cors: {
