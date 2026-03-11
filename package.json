@@ -12,6 +12,7 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.2.1",
     "cors": "^2.8.6",
+    "dockerode": "^4.0.9",
     "dotenv-esm": "16.0.3-4",
     "express": "^5.2.1",
     "lucide-react": "^0.575.0",
