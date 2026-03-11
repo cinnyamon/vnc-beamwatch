@@ -1,19 +1,38 @@
+import { useSockets } from "../hooks/useSockets";
 import BeamChat from "./Chat";
+import VideoContainer from "./Container";
 
-const Dashboard = ({ isConnected, messages }) => {
-  console.log("my connection status in dashboard", isConnected);
-
+const Dashboard = ({}) => {
+  const {
+    onSubmit,
+    disconnect,
+    connect,
+    value,
+    setValue,
+    loading,
+    setLoading,
+    messages,
+    setMessages,
+    isConnected,
+    setIsConnected,
+    name,
+    setName,
+  } = useSockets();
   return (
-    <div className="grid grid-cols-12 h-full gap-4 p-4">
-      <div className="glass col-span-9 rounded-2xl p-0.5">
-        <iframe
-          src="http://localhost:5800"
-          allow="autoplay"
-          className="w-full h-full rounded-2xl"
-        ></iframe>
+    <div className="flex h-full gap-4 p-4 pt-26">
+      <div className="w-full">
+        <VideoContainer />
       </div>
-      <div className="flex justify-center col-span-3">
-        <BeamChat messages={messages} />
+      <div className="justify-center w-fit">
+        <BeamChat
+          messages={messages}
+          setValue={setValue}
+          value={value}
+          loading={loading}
+          name={name}
+          setName={setName}
+          onSubmit={onSubmit}
+        />
       </div>
     </div>
   );

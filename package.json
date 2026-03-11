@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "serve": "node ./backend/server.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -15,9 +16,13 @@
     "dockerode": "^4.0.9",
     "dotenv-esm": "16.0.3-4",
     "express": "^5.2.1",
+    "localtunnel": "^2.0.2",
     "lucide-react": "^0.575.0",
+    "motion": "^12.34.3",
+    "ngrok": "5.0.0-beta.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-router-dom": "^7.13.1",
     "socket.io": "^4.8.3",
     "socket.io-client": "^4.8.3",
     "tailwindcss": "^4.2.1"
