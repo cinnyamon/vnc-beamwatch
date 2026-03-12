@@ -1,8 +1,9 @@
 import dotenv from "dotenv-esm";
 import { createServer } from "node:http";
-import app from "./app.js";
-import apiSocket from "./socket/apiSocket.js";
 import { Server } from "socket.io";
+import app from "./app.js";
+import dockerInit from "./docker/docker-init.js";
+import apiSocket from "./socket/apiSocket.js";
 
 dotenv.config();
 
@@ -20,6 +21,8 @@ const main = () => {
   });
 
   io.on("connection", async (socket) => await apiSocket(socket, io));
+
+  dockerInit("b4cbf384116c");
 
   server.listen(process.env.PORT, "0.0.0.0", (err) => {
     if (err) {
